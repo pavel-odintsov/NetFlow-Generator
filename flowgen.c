@@ -338,10 +338,10 @@ void flush_flow(void)
 
   pdu.hdr.version = htons(NF_VERSION_V5);
   pdu.hdr.count = htons(Ex.flow_cnt);
-  pdu.hdr.sysup_time = htonl(sysuptime());
-  pdu.hdr.unix_secs = htonl(tv.tv_sec);
-  pdu.hdr.unix_nsecs = htonl(tv.tv_usec * 1000);
-  pdu.hdr.flow_sequence = htonl(Ex.flow_seen);
+  pdu.hdr.sysup_time = 0;
+  pdu.hdr.unix_secs = 0;
+  pdu.hdr.unix_nsecs = 0;
+  pdu.hdr.flow_sequence = 0;
   pdu.hdr.engine_type = expr_val(&Ex.engine_type) & 0xff;
   pdu.hdr.engine_id = expr_val(&Ex.engine_id) & 0xff;
   pdu.hdr.sampling = htons(0);
